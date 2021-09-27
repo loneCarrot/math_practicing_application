@@ -14,7 +14,9 @@ $conn=$db->connect();
 
 
 if ($_SERVER['REQUEST_METHOD']=="GET") {
-    echo json_encode($exerciseGenerator->generateExercise($conn));
+    if(isset($_GET['getExercise'])){
+        echo json_encode($exerciseGenerator->generateExercise($conn));
+    }
 }
 
 if ($_SERVER['REQUEST_METHOD']=='POST') {
